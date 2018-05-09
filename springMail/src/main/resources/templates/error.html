@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>error</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet"></link>
+  <script th:src="@{/js/jquery.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+
+	
+		<div class="starter-template">
+			<h1>error</h1>
+			<h2>
+				<span th:text="'error: ' + ${error}"></span>
+			</h2>
+		</div>
+
+</body>
+</html>

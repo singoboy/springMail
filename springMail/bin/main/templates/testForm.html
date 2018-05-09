@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>測試用表單</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet"></link>
+  <script th:src="@{/js/jquery.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+<script>
+function sentTest() {
+	$('#mailForm').attr('action', '/springMail/email/handleTestForm');
+	$('#mailForm').submit();
+}
+
+function deleteFile() {
+	$('#mailForm').attr('action', '/springMail/email/handleFormalForm');
+	$('#mailForm').submit();
+}
+
+</script>  
+  
+      
+</head>
+<body>
+
+	
+<form action="#" id="mailForm" th:action="@{/email/handleTestForm}"  method="post"  enctype="multipart/form-data">
+    <table class="table table-bordered">
+        <tbody>
+            <tr><th>寄件人 mail</th><td><input type="text" name="sender" th:value="*{sender}"></td></tr>        
+            <tr><th>收件人 mail</th><td><input type="text" name="receiverMail" th:value="*{receiverMail}"></td></tr>
+            <tr><th>收件人 名稱</th><td><input type="text" name="receiverName" th:value="*{receiverName}"></td></tr>
+            <tr><th>是否替換名稱(OO)</th><td><input type="text" name="isReplaceName" ></td></tr>
+            <tr><th>上傳檔案</th><td><input id="fileInput" type="file" name="file" class="dynamic-file" /></td></tr>            
+            <tr><th>副本</th><td><input type="text" name="cc"  th:value="*{cc}" ></td></tr>
+            <tr><th>密件副本</th><td><input type="text" name="bcc"  th:value="*{bcc}"></td></tr>
+            <tr><th>主題</th><td><input type="text" name="topic" required="required"  th:value="*{topic}"></td></tr>
+            <tr><th>內容</th><td><textarea rows="20"  name="content" cols="80" th:text="*{content}" ></textarea></td></tr>
+            <tr><th>內容是否為html</th><td><input type="text" name="isHtml" >Y</td></tr>
+            <tr><th>發正式連結</th><td><input type="text" name="formalLink" th:value="*{formalLink}" ></td></tr>            
+            <tr><td><input type="button" value="發測試" class="btn btn-success" onclick="sentTest()"></td><td><input type="button"  value="發正式" class="btn btn-success"   onclick="sentFormal()"></td></tr>
+        </tbody>
+    </table>
+
+</form>
+
+
+
+</body>
+</html>

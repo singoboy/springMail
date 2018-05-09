@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>正式用表單</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet"></link>
+  <script th:src="@{/js/jquery.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+      
+</head>
+<body>
+
+	
+<form action="#" th:action="@{/email/handleFormalForm}"  method="post"  enctype="multipart/form-data">
+    <table class="table table-bordered">
+        <tbody>
+            <tr><th>收件人 mail</th><td><input type="text" name="receiverMail" required="required"></td></tr>
+            <tr><th>收件人 名稱</th><td><input type="text" name="receiverName" required="required"></td></tr>
+            <tr><th>是否替換名稱(OO)</th><td><input type="text" name="isReplaceName" required="required"></td></tr>
+            <tr><th>上傳檔案</th><td><input id="fileInput" type="file" name="file" class="dynamic-file" /></td></tr>            
+            <tr><th>副本</th><td><input type="text" name="cc"  ></td></tr>
+            <tr><th>密件副本</th><td><input type="text" name="bcc" ></td></tr>
+            <tr><th>主題</th><td><input type="text" name="topic" required="required"></td></tr>
+            <tr><th>內容</th><td><textarea rows="8"  name="content" cols="50"></textarea></td></tr>
+            <tr><th>內容是否為html</th><td><input type="text" name="isHtml" required="required">Y</td></tr>
+            <tr><td colspan="2"><input type="submit" value="送出" class="btn btn-success"></tr>
+        </tbody>
+    </table>
+
+</form>
+
+
+
+</body>
+</html>
